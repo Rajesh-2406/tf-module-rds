@@ -26,8 +26,6 @@ resource "aws_db_subnet_group" "main" {
   tags =  merge({ Name = "${var.component}-${var.env}"}, var.tags)
 }
 
-
-
 resource "aws_rds_cluster" "main" {
   cluster_identifier =  "${var.component}-${var.env}"
   engine = var.engine
