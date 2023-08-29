@@ -5,3 +5,4 @@ variable "database_name" {}
 variable "env" {}
 variable "subnet_ids" {}
 variable "tags" {}
+variable "kms_key_arn" {}
