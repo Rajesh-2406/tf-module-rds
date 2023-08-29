@@ -3,7 +3,7 @@ variable "engine" {}
 variable "engine_version" {}
 variable "database_name" {}
 variable "env" {}
-variable "subnet_ids" {}
+variable "subnet_id" {}
 variable "tags" {}
 variable "kms_key_arn" {}
 variable "instance_count" {}
