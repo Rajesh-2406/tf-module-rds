@@ -22,7 +22,7 @@ resource "aws_security_group" "sg" {
 }
 resource "aws_db_subnet_group" "main" {
   name = "main"
-  subnet_ids = var.subnet_id
+  subnet_ids = var.subnet_ids
   tags =  merge({ Name = "${var.component}-${var.env}"}, var.tags)
 }
 
