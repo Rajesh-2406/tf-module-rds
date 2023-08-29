@@ -6,7 +6,7 @@ resource "aws_db_subnet_group" "main" {
 
 
 
-resource "aws_rds_cluster" "default" {
+resource "aws_rds_cluster" "main" {
   cluster_identifier =  "${var.component}-${var.env}"
   engine = var.engine
   engine_version = var.engine_version
@@ -16,4 +16,13 @@ resource "aws_rds_cluster" "default" {
   db_subnet_group_name = aws_db_subnet_group.main.name
   storage_encrypted = true
   kms_key_arn = var.kms_key_arn
+}
+
+resource "aws_rds_cluster_instance" "main" {
+  count = var.instance_count
+  identifier = "${var.component}-${var.env}-instance-${count.index}"
+  cluster_identifier = aws_rds_cluster_instance.main.id
+  instance_class = "db.t3.small"
+  engine = var.engine
+  engine_version = var.engine_version
 }
