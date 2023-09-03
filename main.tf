@@ -34,7 +34,7 @@ resource "aws_rds_cluster" "main" {
   master_password        = data.aws_ssm_parameter.password.value
   db_subnet_group_name   = aws_db_subnet_group.main.name
   storage_encrypted      = true
-  db_name              = var.db_name
+  database_name          = var.db_name
   kms_key_id             = var.kms_key_arn
   vpc_security_group_ids = [aws_security_group.sg.id]
   skip_final_snapshot    = true
