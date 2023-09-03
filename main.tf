@@ -41,6 +41,7 @@ resource "aws_rds_cluster" "main" {
 
 }
 
+
 resource "aws_rds_cluster_instance" "main" {
   count              = var.db_instance_count
   identifier         = "${var.component}-${var.env}-instance-${count.index}"
